@@ -7,9 +7,7 @@ import { UserMapper } from "./user.mapper";
 
 export class UserRepositoryImpl implements IUserRepository {
     constructor(@InjectRepository(UserSchema) private readonly userRepository: Repository<UserSchema>) { }
-    findById(id: number): Promise<UserEntity | null> {
-        throw new Error("Method not implemented.");
-    }
+    
 
     async create(user: UserEntity): Promise<UserEntity> {
         const userSchema = UserMapper.toPersistence(user);
