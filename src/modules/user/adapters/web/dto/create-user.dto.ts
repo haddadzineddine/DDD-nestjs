@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsNotEmpty, IsEmail } from 'class-validator';
+import { CreateUserCommand } from 'src/modules/user/application/commands/dto/create-user.command';
 
 
 export class CreateUserDto {
@@ -30,4 +31,9 @@ export class CreateUserDto {
     @IsString()
     @IsNotEmpty()
     password: string;
+
+
+    static toCommand(createUserDto: CreateUserDto): CreateUserCommand {
+        return new CreateUserCommand(createUserDto.name, createUserDto.email, createUserDto.password);
+    }
 }

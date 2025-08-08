@@ -1,9 +1,9 @@
 import { UserEntity } from "src/modules/user/domain/entities/user.entity";
 import { UserRepository as IUserRepository } from "src/modules/user/domain/repositories/user.repository";
-import { UserSchema } from "./user.schema";
+import { UserSchema } from "../schema/user.schema";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
-import { UserMapper } from "./user.mapper";
+import { UserMapper } from "../mapper/user.mapper";
 
 export class UserRepositoryImpl implements IUserRepository {
     constructor(@InjectRepository(UserSchema) private readonly userRepository: Repository<UserSchema>) { }

@@ -1,5 +1,5 @@
 import { UserEntity } from "src/modules/user/domain/entities/user.entity";
-import { UserSchema } from "./user.schema";
+import { UserSchema } from "../schema/user.schema";
 
 export class UserMapper {
     static toDomain(user: UserSchema): UserEntity {
